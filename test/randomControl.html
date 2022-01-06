@@ -1,0 +1,32 @@
+<html>
+    <head>
+        <script>
+            let tapCount = 0
+
+            function kickChair() {
+                console.log("chair kick pressed")
+                webkit.messageHandlers.random.postMessage(
+                    { 
+                        trigger: "chairKick"
+                    }
+                );
+            }
+
+            
+            function cylinderTapped() {
+                console.log("cylinder tapped")
+                tapCount++
+                let tapCountElement = document.getElementById("tapCount")
+                if(tapCountElement) {
+                    tapCountElement.innerHTML = tapCount
+                } 
+
+            }
+
+        </script>
+    </head>
+    <body>
+        <Button onclick="kickChair()">Kick Chair</Button>
+        <div>Tap Count: <span id="tapCount">0</span> </div>
+    </body>
+</html>
